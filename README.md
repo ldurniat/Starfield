@@ -6,7 +6,7 @@
 
 ### Run
 
-To run game you need install [Corona SDK](https://portal.coronalabs.com) 
+To run code you need install [Corona SDK](https://portal.coronalabs.com) 
 
 ### License
 
