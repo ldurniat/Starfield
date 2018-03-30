@@ -33,7 +33,7 @@ local scene = composer.newScene()
 -- ------------------------------------------------------------------------------------------ --
 
 local movingStars = {} 
-local numStar = 800  
+local numStar = 150  
 
 function scene:create( event )
  
@@ -47,7 +47,7 @@ function scene:create( event )
    end
 
    -- Increase speed to make stars move faster:)
-   scene.speed = 20
+   scene.speed = 10
 
 end
 

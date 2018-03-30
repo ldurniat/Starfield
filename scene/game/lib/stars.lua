@@ -59,7 +59,7 @@ function M.new()
 	local parent = scene.view
 
 	local width = mMax( _B - _T, _R - _L )
-	local height = width
+	local height = width * 0.5
 
 	local star = {}
 	star.x = mRandom( -width, width )
