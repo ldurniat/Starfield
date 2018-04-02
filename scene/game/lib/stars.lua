@@ -37,6 +37,16 @@ local _CY 	  = display.contentCenterY
 --                                 PRIVATE METHODS                                            --	
 -- ------------------------------------------------------------------------------------------ --
 
+------------------------------------------------------------------------------------------------
+--- Re-maps a number from one range to another. 
+--
+-- @param value	The incoming value to be converted.
+-- @param start1 Lower bound of the value's current range.
+-- @param stop1	Upper bound of the value's current range.
+-- @param start2 Lower bound of the value's target range.
+-- @param stop2	Upper bound of the value's target range.
+-- @return Remapped number.
+------------------------------------------------------------------------------------------------
 local function map( value, start1, stop1, start2, stop2 )
 
 	return ( ( start2 - stop2 ) / ( start1 - stop1 ) * ( value - start1 ) + start2 )
@@ -69,13 +79,8 @@ function M.new()
 
 	function star:update()
 
-		-- Remove old line
-		display.remove( star.line )
-		star.line = nil
-
 		-- Remove old star
-		display.remove( star.circle )
-		star.circle = nil
+		self:destroy()
 
 		self.z = self.z - scene.speed
 	    if self.z < 1 then
@@ -101,6 +106,22 @@ function M.new()
 	    star.line:translate( _CX, _CY )
 
 	    self.pz = self.z
+
+	end	
+
+	function star:destroy()
+
+		if self.line then
+			-- Remove old line
+			display.remove( self.line )
+			self.line = nil
+		end
+
+		if self.circle then
+			-- Remove old circle
+			display.remove( self.circle )
+			self.circle = nil
+		end
 
 	end	
 

@@ -95,6 +95,17 @@ function scene:hide( event )
 end
 
 function scene:destroy( event )
+
+   for i=#movingStars, 1, -1 do
+
+      -- Remove star
+      local star = table.remove( movingStars, i )
+      star:destroy()
+      star = nil
+
+   end
+
+   movingStars = nil  
  
 end
  
